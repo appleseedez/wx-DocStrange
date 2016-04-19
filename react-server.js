@@ -9,6 +9,8 @@ import { apiRouter } from './routes'
 import { siteRouter } from './routes'
 const ReactServer = Koa()
 
+let ReactServerTest = Koa()
+
 ejsEngine(ReactServer,{
   root:Path.join(__dirname,'views'),
   layout:'layout',
@@ -24,6 +26,10 @@ ReactServer.use(StaticFile('./assets',{'maxage':3*60*1000})) // 其他静态资�
 
 ReactServer.use(apiRouter.routes())
 ReactServer.use(siteRouter.routes())
+
+
+ReactServerTest.use(StaticFile('./static'))
+ReactServerTest.listen(8003)
 
 /**服务器异常处理**/
 if (process.env.NODE_ENV === 'test') {

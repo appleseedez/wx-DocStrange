@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>order</title>
+    <link href="./style/weui.css" rel="stylesheet">
+    <link href="./style/main.css" rel="stylesheet">
+    <script src="./vendors/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="viewport-cw">
+      <div class="scroll-box-cw J_offset transition">
+        <div class="hd">
+          <h1 class="page-title">修改信息</h1>
+        </div>
+        <div class="weui_cells weui_cells_form">
+          <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
+            <div class="weui_cell_bd weui_cell_primary">
+              <input class="weui_input" type="number" pattern="[0-9]*" placeholder="请输入手机号">
+            </div>
+          </div>
+          <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">车牌号</label></div>
+            <div class="weui_cell_bd weui_cell_primary">
+              <input class="weui_input" type="number" pattern="[0-9]*" placeholder="请输入车牌号">
+            </div>            
+          </div>
+        </div>
+        <div class="weui_cells weui_cells_access">
+          <a class="weui_cell J_area" href="javascript:;">            
+            <div class="weui_cell_bd weui_cell_primary">
+              <p>小区</p>
+            </div>
+            <div class="weui_cell_ft">选择小区</div>
+          </a>        
+        </div>
+        <div class="back-btn-box">
+          <div class="lef-btn">
+            <a href="javascript:;" class="weui_btn weui_btn_default">返回</a>
+          </div>
+          <div class="rig-btn">
+            <a href="javascript:;" class="weui_btn weui_btn_primary">确认修改</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="J_cover J_close cover-layer-cw"></div>
+    <div class="J_areaBox area-choose-cw">
+      <h2><span>选中小区</span><em class="J_close">关闭</em></h2>
+      <div class="tab">
+        <span class="choose-1">锦江区</span>
+        <span class="choose-2 sel">莲花小区</span>
+        <div class="line"></div>
+      </div>
+      <ul class="list">
+        <li><span>锦江区</span></li>
+        <li class="sel"><span>锦江区</span></li>
+        <li><span>锦江区</span></li>
+        <li><span>锦江区</span></li>
+        <li><span>锦江区</span></li>
+        <li><span>锦江区</span></li>
+        <li><span>锦江区</span></li>
+        <li><span>锦江区</span></li>
+        <li><span>锦江区</span></li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      $(function(){
+        var oTop = 0;
+        var $J_offset = $(".J_offset");
+        $(window).resize(function() {
+          if(oTop < 0){
+            oTop = 0;
+          }
+          else{
+            oTop = - $(":focus").offset().top + 10;
+          };
+          $J_offset.css("top",oTop);
+        });
+
+        var $J_area = $(".J_area");
+        var $J_cover = $(".J_cover");
+        var $J_areaBox = $(".J_areaBox");
+        var $J_close = $(".J_close");
+        $J_area.on("click",function(){
+          $J_cover.fadeIn();
+          $J_areaBox.css("bottom","0");
+        });
+        $J_areaBox.on("click","li,.tab span",function(){
+          $(this).addClass("sel").siblings().removeClass("sel");
+        });
+        $J_areaBox.on("click","li,.tab span",function(){
+          $(this).addClass("sel").siblings().removeClass("sel");
+        });
+        $J_close.on("click",function(){
+          $J_cover.fadeOut();
+          $J_areaBox.css("bottom","-22rem");
+        });
+      });
+    </script>
+  </body>
+</html>

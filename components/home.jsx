@@ -5,11 +5,13 @@ const Home = React.createClass({
     return (
       <div className="viewport-cw index-cw">
         <div className="user-avatar">
-          <b>?</b>
+          <a href={'/personal-center'} style={{display:'block'}}>
+            <b>?</b>
+          </a>
         </div>
         <p className="tip">尚未绑定手机号</p>
         <div className="btn-cw">
-          <a href={'/personal-center'} >
+          <a href={'/place-order'}>
             <span>预约洗车</span>
           </a>
         </div>

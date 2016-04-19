@@ -31,5 +31,10 @@ siteRouter.get('/',function* home(next){
 siteRouter.get('/personal-center',function* home(next){
   yield this.render('modules/default',renderConfig('personal-center'))
 })
-
+siteRouter.get('/place-order',function* home(next){
+  yield this.render('modules/default',renderConfig('place-order'))
+})
+siteRouter.get('/waiting',function* home(next){
+  yield this.render('modules/default',renderConfig('waiting'))
+})
 export { siteRouter }
